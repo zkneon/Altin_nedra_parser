@@ -70,8 +70,9 @@ def get_link_list(start: int = 1, count: int = 2) -> List:
     :param count: Range of page from first to count
     :return: List of link
     """
+    count += 1
     link_list = []
-    for number in range(start, count + 1):
+    for number in range(start, count):
         url = f'https://nedradv.ru/nedradv/ru/auction/?ap={number}'
         soup = get_page_content(url)
         link_mass = soup.css.select('td[nowrap]')
